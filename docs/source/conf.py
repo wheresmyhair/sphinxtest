@@ -7,14 +7,40 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'LMFlow'
-copyright = '2024, LMFlow'
-author = 'LMFlow'
-release = ''
+copyright = 'LMFlow 2024'
+author = 'The LMFlow Team'
+
+import os
+import sys
+sys.path.insert(0,os.path.abspath('../..'))
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser']
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
+    'myst_parser',
+    'autoapi.extension',
+    #"sphinxext.rediraffe",
+    "sphinx_design",
+    #"sphinx_copybutton",
+    # For extension examples and demos
+    #"ablog",
+    "matplotlib.sphinxext.plot_directive",
+    #"myst_nb",
+    # "nbsphinx",  # Uncomment and comment-out MyST-NB for local testing purposes.
+    "numpydoc",
+    #"sphinx_togglebutton",
+    #"sphinx_favicon",
+]
+
+autosummary_generate = True
+
+autoapi_type = 'python'
+autoapi_dirs = ['../../src']
 
 source_suffix = {
     '.rst': 'restructuredtext',
@@ -39,5 +65,21 @@ html_theme_options = {
     "navbar_start": ["navbar-logo"],
     "navbar_center": ["navbar-nav"],
     "navbar_end": ["navbar-icon-links"],
-    "navbar_persistent": ["search-button"]
-}
+    "navbar_persistent": ["search-button"],
+    "header_links_before_dropdown": 4,
+    "icon_links": [
+        {
+            "name": "LMFlow",
+            "url": "https://github.com/OptimalScale/LMFlow",
+            "icon": "_static/logo5.svg",
+            "type": "local",
+            "attributes": {"target": "_blank"},
+        },
+    ],
+    "logo": {
+        "text": "LMFlow",
+        "image_dark": "_static/logo5.svg",
+        "alt_text": "LMFlow",
+    },
+   }
+
