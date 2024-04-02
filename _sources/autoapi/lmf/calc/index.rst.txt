@@ -1,0 +1,22 @@
+:py:mod:`lmf.calc`
+==================
+
+.. py:module:: lmf.calc
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   lmf.calc.calc
+
+
+
+.. py:function:: calc(a, b)
+
+
